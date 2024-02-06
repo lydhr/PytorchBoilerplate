@@ -1,0 +1,64 @@
+data:
+    base_folder_path: "data"
+    datasets:
+        piano:
+            folder_path: "${data.base_folder_path}/piano"
+        podcast:
+            folder_path: "${data.base_folder_path}/podcast"
+    dataloader_num_workers: 32
+model:
+    path: "saved/models/saved_model_${model.arch}.pth"    
+    arch: "RNN"
+    batch_size: 32
+    train:
+        n_epoch: 10
+        dataloader:
+            shuffle: true
+            num_workers: ${data.dataloader_num_workers}
+            batch_size: ${model.batch_size}
+        checkpoint:
+            do_load: false
+            do_save: false
+            save_path: ${model.path}
+            load_path: ${model.path}
+        do_evaluate: true
+        anchor_eval_loss: false
+        optimizer:
+            lr: 0.1
+    evaluate:
+        dataloader:
+            shuffle: false
+            num_workers: ${data.dataloader_num_workers}
+            batch_size: ${model.batch_size}
+        output:
+            do_save: false
+            path: "./validation.pkl"
+    predict:
+        checkpoint:
+            do_load: false
+            load_path: ${model.path}
+        dataloader: ${..evaluate.dataloader}
+        output:
+            do_save: false
+            path: "./prediction.pkl" # The hydra.run or sweep folder
+    loss:
+        type: "MSE" # CrossEntropy or MSE
+
+signal:
+    fs: 48000
+    window_size: 2048
+    numerical_range: 32767 #2**15-1
+    fft:
+        window_size: ${..window_size}
+        bin_width: ${eval:${..fs}/${.window_size}}
+
+plot:
+    show: false
+
+seed: 0
+
+hydra:
+  run:
+    dir: ./saved/logs/${now:%Y-%m-%d-%H-%M-%S}
+  sweep:
+    dir: ./saved/logs/${now:%Y-%m-%d-%H-%M-%S}
