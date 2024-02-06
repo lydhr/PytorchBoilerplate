@@ -1,6 +1,6 @@
 #custom
-saved/*
-data/*/
+# saved/*
+# data/*/
 sftp-config.json
 
 # Byte-compiled / optimized / DLL files
