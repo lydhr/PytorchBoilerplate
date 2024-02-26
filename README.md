@@ -2,8 +2,8 @@
 
 
 Yet another Pytorch boilerplate ...... but targeting at research users who would love to 
-- 1) write customize steps
-- 2) do extensive ablation studies
+- 1) write customized steps
+- 2) conduct extensive ablation studies
 
 ### Key features
 
