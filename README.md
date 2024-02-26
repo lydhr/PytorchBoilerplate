@@ -3,7 +3,7 @@
 
 Yet another Pytorch boilerplate ...... but targeting at research users who would love to 
 - 1) write customize steps
-- 2) do intensive ablation study
+- 2) do extensive ablation studies
 
 ### Key features
 
@@ -22,9 +22,9 @@ Yet another Pytorch boilerplate ...... but targeting at research users who would
 - `python main.py --multirun model.arch=RNN,CNN`
 (reference: conf/config.yaml)
 
-In detail, this demo consists of an audio classification task:
+This demo is built for an audio classification task:
 - The `data/` folder comes with 6 short audio clips of piano or podcast. The samplary datasets classes can load the raw wav files and segment them into short training and testing samples. 
-- Samplary RNN/CNN model then binary-classify the two audio types.
+- It runs a vanilla RNN or CNN model that binary-classifies the two audio types.
 
 ### Future work
 - Support multi-GPU training using DDP.
