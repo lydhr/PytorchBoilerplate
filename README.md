@@ -17,13 +17,13 @@ Yet another Pytorch boilerplate ...... but targeting at research users who would
     - Currently, it is a single-GPU implementation.
     - Coding style: one lesson I learned from my mentors is to avoid global variables; instead, pass the hyper-parameters down function by function, which is less prone to unnoticeable bugs.
 
-### Samplary usage
+### Sample usage
 - `python main.py`
 - `python main.py --multirun model.arch=RNN,CNN`
 (reference: conf/config.yaml)
 
 This demo is built for an audio classification task:
-- The `data/` folder comes with 6 short audio clips of piano or podcast. The samplary datasets classes can load the raw wav files and segment them into short training and testing samples. 
+- The `data/` folder comes with 6 short audio clips of piano or podcast. The exemplary datasets classes load the raw WAV files and segment them into short training and testing samples. 
 - It runs a vanilla RNN or CNN model that binary-classifies the two audio types.
 
 ### Future work
