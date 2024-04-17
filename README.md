@@ -1,4 +1,4 @@
-# Vanila Pytorch + Hydra
+# Vanilla Pytorch + Hydra boilerplate
 
 
 Yet another Pytorch boilerplate ...... but targeting at research users who would love to 
